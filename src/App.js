@@ -1,7 +1,9 @@
+import { NavBar } from "./components/NavBar"
+
 function App() {
   return (
     <div>
-      <p>My React Portfolio</p>
+      <NavBar />
     </div>
   )
 }
