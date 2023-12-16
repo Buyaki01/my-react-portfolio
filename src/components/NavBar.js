@@ -1,27 +1,51 @@
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
+import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'
 
 export const NavBar = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="/">
+    <nav className='m-2'>
+      <div className='flex gap-2 justify-between'>
+        <div href="/">
           <img src={''} alt="" />
-        </Navbar.Brand>
+        </div>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav">
-          <span className="navbar-toggler-icon"></span>
-        </Navbar.Toggle>
+        <div>
+          <a 
+            href="#home"
+            className='mr-2'
+          >
+            Home
+          </a>
+          <a 
+            href="#skills"
+            className='mr-2'
+          >
+            Skills
+          </a>
+          <a 
+            href="#projects"
+          >
+            Projects
+          </a>
+        </div>
 
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#skills">Skills</Nav.Link>
-            <Nav.Link href="#projects">Projects</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        <div className='flex gap-2'>
+          <a 
+            href='#'
+          >
+            <FaFacebook />
+          </a>
+          <a 
+            href='#'
+          >
+            <FaTwitter />
+          </a>
+          <a 
+            href='#'
+          >
+            <FaInstagram />
+          </a>
+        </div>
+      </div>
+    </nav>
   )
 }
