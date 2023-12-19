@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
-import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'
-import { HashLink } from 'react-router-hash-link'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import logo from '../assets/img/logo.svg'
+import navIcon1 from '../assets/img/nav-icon1.svg'
+import navIcon2 from '../assets/img/nav-icon2.svg'
+import navIcon3 from '../assets/img/nav-icon3.svg'
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState('home')
@@ -25,67 +30,35 @@ export const NavBar = () => {
   }
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="container mx-auto">
-        <div className="flex items-center">
-          <a href="/" className="mr-auto">
-            <img src={''} alt="Logo" />
-          </a>
-        </div>
+    <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
+      <Container>
+        <Navbar.Brand href="#home">
+          <img src={logo} alt="Logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
+            <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
+            <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+          </Nav>
 
-        <div>
-          <a 
-            href="#home"
-            className={`mr-2 ${activeLink === 'home' ? '' : ''}`}
-            onClick={() => onUpdateActiveLink('home')}
-          >
-            Home
-          </a>
-          <a 
-            href="#skills"
-            className={`mr-2 ${activeLink === 'skills' ? '' : ''}`}
-            onClick={() => onUpdateActiveLink('skills')}
-          >
-            Skills
-          </a>
-          <a 
-            href="#projects"
-            className={`mr-2 ${activeLink === 'projects' ? '' : ''}`}
-            onClick={() => onUpdateActiveLink('projects')}
-          >
-            Projects
-          </a>
-        </div>
-
-        <div className='navbar-text flex items-center space-x-4'>
-          <div className='flex gap-2 items-center'>
-            <a 
-              href='#'
-            >
-              <FaFacebook />
-            </a>
+          <span className="navbar-text">
+            <div className="social-icon">
+              <a href="#"><img src={navIcon1} alt="" /></a>
+              <a href="#"><img src={navIcon2} alt="" /></a>
+              <a href="#"><img src={navIcon3} alt="" /></a>
+            </div>
            
-            <a 
-              href='#'
+            <button 
+              className="vvd"
+              onClick={() => console.log('connect')}
             >
-              <FaTwitter />
-            </a>
-            
-            <a 
-              href='#'
-            >
-              <FaInstagram />
-            </a>
-          </div>
-         
-          <button 
-            onClick={() => console.log('connect')}
-            className="vvd"
-          >
-            <span>Let’s Connect</span>
-          </button>
-        </div>
-      </div>
-    </nav>
+              <span>Let’s Connect</span>
+            </button>
+          </span>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
